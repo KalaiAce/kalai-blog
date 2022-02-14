@@ -10,9 +10,10 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 from functools import wraps
 from sqlalchemy.ext.declarative import declarative_base
+from os import environ
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 Base = declarative_base()
